@@ -1,0 +1,28 @@
+pool: Default
+trigger:
+  - main
+jobs:
+  - job: dotnet
+    displayName: dotnet
+    steps:
+          - task: DotNetCoreCLI@2
+            inputs: 
+              command: 'restore'
+              projects: ./MusicStore/MusicStore.csproj
+          - task: DotNetCoreCLI@2
+            inputs: 
+              command: 'build'
+              projects: ./MusicStore/MusicStore.csproj
+          - task: Npm@1
+            inputs:
+              command: 'install'
+              workingDir: /home/ubuntu/myagent/_work/1/s/MusicStore/ClientApp
+          - task: Npm@1
+            inputs: 
+              command: 'custom'
+              customCommand: ' build'
+              workingDir: /home/ubuntu/myagent/_work/1/s/MusicStore/ClientApp
+
+
+
+      
