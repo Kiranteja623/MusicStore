@@ -14,6 +14,7 @@ jobs:
               command: 'build'
               projects: ./MusicStore/MusicStore.csproj
               publishTestResults: true
+              packagesToPack: '**/*.csproj'
           - task: Npm@1
             inputs:
               command: 'install'
