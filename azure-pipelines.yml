@@ -16,7 +16,7 @@ jobs:
           - task: PublishTestResults@2
             inputs: 
               testResultsFormat: 'JUnit'
-              testResultsFiles: '**/TEST-*.csproj'
+              testResultsFiles: './MusicStore/MusicStore.csproj'
           - task: Npm@1
             inputs:
               command: 'install'
