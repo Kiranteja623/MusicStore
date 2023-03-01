@@ -13,10 +13,7 @@ jobs:
             inputs: 
               command: 'build'
               projects: ./MusicStore/MusicStore.csproj
-          - task: PublishTestResults@2
-            inputs: 
-              testResultsFormat: 'JUnit'
-              testResultsFiles: '**/TEST-*.xml'
+              publishTestResults: true
           - task: Npm@1
             inputs:
               command: 'install'
